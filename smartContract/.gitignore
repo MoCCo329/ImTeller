@@ -1,0 +1,13 @@
+
+/build
+/contracts/artifacts
+
+.secret
+truffle-config.js
+
+
+/node_modules
+
+
+/test
+

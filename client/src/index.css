@@ -1,0 +1,34 @@
+body {
+	min-height: 100vh;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+		'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	cursor: url('https://imtellercard.s3.ap-northeast-2.amazonaws.com/brush.png'), auto;
+	overflow: hidden;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+@property --rotate {
+	syntax: '<angle>';
+	initial-value: 132deg;
+	inherits: false;
+}
+
+:root {
+	--card-height: 55vh;
+	--card-width: calc(var(--card-height) / 1.5);
+}
+
+@keyframes spin {
+	0% {
+		--rotate: 0deg;
+	}
+	100% {
+		--rotate: 360deg;
+	}
+}

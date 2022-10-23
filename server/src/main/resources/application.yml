@@ -1,0 +1,60 @@
+spring:
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+  #mysql JPA
+  jpa:
+    hibernate:
+      naming:
+        strategy: org.hibernate.cfg.ImprovedNamingStrategy
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+      ddl-auto: update
+      use-new-id-generator-mappings: 'true'
+    properties:
+      hibernate:
+        format_sql: 'true'
+        show_sql: 'true'
+    database: mysql
+    show-sql: 'true'
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      password: im509teller!
+      username: classic_dev
+    url: jdbc:mysql://j7a509.p.ssafy.io:3306/imteller_dev?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Seoul&zeroDateTimeBehavior=convertToNull&rewriteBatchedStatements=true
+
+  # documentationPluginsBootstrapper 해결
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+
+  # 메일 관련
+  mail:
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: 'true'
+          auth: 'true'
+    host: smtp.gmail.com
+    username: imteller509@gmail.com
+    password: dtthfaxzlefpsyql
+    port: 587
+
+  # redis 관련
+  redis:
+    host: localhost
+    # host: http://j7a509.p.ssafy.io/
+    port: 6379
+
+#https 설정
+server:
+  servlet:
+    context-path: /api/v1
+  ssl:
+    enabled: true
+    key-store: classpath:keystore.p12
+    key-store-password: imteller509!
+    key-store-type: PKCS12

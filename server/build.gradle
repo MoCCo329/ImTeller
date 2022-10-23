@@ -1,0 +1,56 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.3'
+	id 'io.spring.dependency-management' version '1.0.13.RELEASE'
+	id 'java'
+}
+
+group = 'com.classic'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.javassist:javassist:3.29.1-GA'
+	runtimeOnly 'mysql:mysql-connector-java:8.0.29'
+	compileOnly 'org.projectlombok:lombok'
+	compileOnly 'javax.xml.bind:jaxb-api'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// swagger
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
+
+	// SMTP 메일 관련
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+
+	// 보안
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	//Amazon S3 imageUpload
+	implementation 'org.springframework.cloud:spring-cloud-starter-aws:2.0.1.RELEASE'
+
+	// redis
+	implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+	implementation 'it.ozimov:embedded-redis:0.7.1' // 로컬에서 redis 테스트하는 용도
+
+	// socket
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
+	implementation('org.webjars:sockjs-client:1.1.2')
+	implementation('org.webjars:stomp-websocket:2.3.3-1')
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
